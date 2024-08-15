@@ -5,5 +5,5 @@ langchain-core
 langchain
 python-dotenv
 streamlit
-faiss-gpu
+
                                                 
