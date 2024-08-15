@@ -1,2 +1,2 @@
 # RAG_ChatBot
-Chatbot Expert in Risks Factors Related to Financial Trades Based on Data Provided in Documents
+Chatbot answer based on Data Provided in Documents (it's about risk factor related to financial trade)
