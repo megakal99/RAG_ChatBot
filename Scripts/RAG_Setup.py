@@ -23,8 +23,11 @@ embeddings = HuggingFaceInferenceAPIEmbeddings(
 )
 
 # Call stored vectors of documents chunks
-db1 = FAISS.load_local("../DBFaiss/faiss_index_Consular", embeddings,allow_dangerous_deserialization=True)
-db2 = FAISS.load_local("../DBFaiss/faiss_index_Offering", embeddings,allow_dangerous_deserialization=True)
+current_dir = os.path.dirname(__file__)
+# Reach the main project directory
+main_dir = os.path.abspath(os.path.join(current_dir, '..'))
+db1 = FAISS.load_local(os.path.join(main_dir,'DBFaiss','faiss_index_Consular'), embeddings,allow_dangerous_deserialization=True)
+db2 = FAISS.load_local(os.path.join(main_dir, 'DBFaiss','faiss_index_Offering'), embeddings,allow_dangerous_deserialization=True)
 
 # Build our Langchain chain instance (Prompt Template, MemoryBuffer, Conversational chain)
 systemPrompt = (
