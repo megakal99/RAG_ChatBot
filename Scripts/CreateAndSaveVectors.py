@@ -16,8 +16,11 @@ embeddings = HuggingFaceInferenceAPIEmbeddings(
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))
 # Construct the path to the PDF file by moving up one directory and then into the 'data' subdirectory
-pdf1_path = os.path.join(current_directory, '..', 'data', 'consular insurance.pdf')
-pdf2_path = os.path.join(current_directory, '..', 'data', 'offering memorandum.pdf')
+current_dir = os.path.dirname(__file__)
+# Reach the main project directory
+main_dir = os.path.abspath(os.path.join(current_dir, '..'))
+pdf1_path = os.path.join(main_dir,'data', 'consular insurance.pdf')
+pdf2_path = os.path.join(main_dir,'data', 'offering memorandum.pdf')
 # Load documents
 loader_doc1 = PyPDFLoader(pdf1_path)
 loader_doc2 = PyPDFLoader(pdf2_path)
