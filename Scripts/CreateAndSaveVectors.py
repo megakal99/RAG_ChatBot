@@ -13,8 +13,7 @@ inference_api_key= os.getenv('Token')
 embeddings = HuggingFaceInferenceAPIEmbeddings(
     api_key=inference_api_key, model_name="sehf_AJYHYozZNeZCApmuYoQqyNUCtiNGmXXFrBntence-transformers/all-MiniLM-l6-v2"
 )
-# Get the directory of the current script
-current_directory = os.path.dirname(os.path.abspath(__file__))
+
 # Construct the path to the PDF file by moving up one directory and then into the 'data' subdirectory
 current_dir = os.path.dirname(__file__)
 # Reach the main project directory
@@ -35,8 +34,8 @@ documents_ = text_splitter.split_documents(pages2)
 db_doc1 = FAISS.from_documents(documents,embeddings)
 db_doc2 = FAISS.from_documents(documents_,embeddings)
 #save stored vectores (index)in disk
-db_doc1.save_local("../DBFaiss/faiss_index_Consular")
-db_doc2.save_local("../DBFaiss/faiss_index_Offering")
+db_doc1.save_local(os.path.join(main_dir,'DBFaiss','faiss_index_Consular'))
+db_doc2.save_local(os.path.join(main_dir,'DBFaiss','faiss_index_Offering'))
 
 
 
